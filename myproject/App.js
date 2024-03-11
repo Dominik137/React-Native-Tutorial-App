@@ -1,32 +1,34 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState('Shaun')
-  const [age, setAge] = useState('30')
-
-  const clickHandler = () => {
-    setName('chun-li')
-  }
+  const [people, setPeople] = useState([
+    
+      { name: "John", key: "1" },
+      { name: "James", key: "2" },
+      { name: "Jack", key: "3" },
+      { name: "Derrick", key: "4" },
+      { name: "Dom", key: "5" },
+      { name: "Greg", key: "6" },
+      { name: "Emma", key: "7" },
+      { name: "Blake", key: "8" },
+      { name: "Kim", key: "9" },
+      { name: "Katie", key: "10" },
+  ])
+  
 
   return (
     <View style={styles.container}>
-        <Text>Enter Name</Text>
-        <TextInput 
-          multiline
-          style={styles.input} 
-          placeholder='e.g. John Doe'
-          onChangeText={(val)=> setName(val)}
-        />
-        <Text>Enter age</Text>
-        <TextInput 
-          keyboardType='numeric'
-          style={styles.input} 
-          placeholder='e.g. 24'
-          onChangeText={(val)=> setAge(val)}
-        />
-        <Text>name: {name}, age: {age} </Text>
+    {/* <ScrollView>
+      {people.map((peps)=>{
+        return(
+          <View key={peps.key}>
+            <Text style={styles.item}>{peps.name}</Text>
+          </View>
+        )
+      })}
+      </ScrollView> */}
     </View>
   );
 }
@@ -35,15 +37,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 40,
+    paddingHorizontal: 20
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
-    input: {
-    marginTop: '20px',
-    borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
-    margin: 10,
-    width: 200
+  item: {
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: 'pink',
+    fontSize: 24
   }
 });
