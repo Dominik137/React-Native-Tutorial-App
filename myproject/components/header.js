@@ -11,8 +11,9 @@ function Header(){
 
 const styles = StyleSheet.create({
     header: {
-        height: 80,
-        paddingTop: 38,
+        height: 110,
+        // width: 0,
+        paddingTop: 68,
         backgroundColor: 'coral'
     },
     title: {
